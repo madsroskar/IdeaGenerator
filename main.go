@@ -22,9 +22,13 @@ func (i Idea) String() string {
 }
 
 func createIdea(sources, targets []byte) Idea {
-	s := strings.Split(string(sources), "\n")
-	t := strings.Split(string(targets), "\n")
-	return Idea{s[random(0, len(s) - 1)], t[random(0, len(t) - 1)]}
+	trimmedSources := strings.TrimSpace(string(sources))
+	trimmedTargets := strings.TrimSpace(string(targets))
+	
+	s := strings.Split(trimmedSources, "\n")
+	t := strings.Split(trimmedTargets, "\n")
+	
+	return Idea{s[random(0, len(s))], t[random(0, len(t))]}
 }
 
 func readFiles(sourceFileName, targetFileName string) ([]byte, []byte) {

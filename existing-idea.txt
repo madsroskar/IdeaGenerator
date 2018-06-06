@@ -5,3 +5,7 @@ Vine
 Soundcloud
 1Password
 Todoist
+Powerbank
+Cups
+Smartwatches
+Key cards
