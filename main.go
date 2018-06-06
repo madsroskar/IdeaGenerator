@@ -31,18 +31,16 @@ func createIdea(sources, targets []byte) Idea {
 	return Idea{s[random(0, len(s))], t[random(0, len(t))]}
 }
 
+func readFile(fileName string) []byte {
+	content, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		fmt.Print(err)
+	}
+	return content
+}
+
 func readFiles(sourceFileName, targetFileName string) ([]byte, []byte) {
-	b, err := ioutil.ReadFile(sourceFileName)
-	if err != nil {
-		fmt.Print(err)
-	}
-
-	a, err := ioutil.ReadFile(targetFileName) 
-	if err != nil {
-		fmt.Print(err)
-	}
-
-	return b, a
+	return readFile(sourceFileName), readFile(targetFileName)
 }
 
 func main() {
