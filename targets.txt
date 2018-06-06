@@ -4,3 +4,120 @@ Cryptokitties
 Dogs
 Cats
 the elderly
+the young
+the office
+the home
+Alexa
+Google Home
+Siri
+the terminal
+macOS
+Windows 10
+Windows 9
+Windows 8
+Windows 7
+Windows XP
+Windows ME
+Windows NT
+Windows 98
+Windows 95
+Windows 3.1
+MS-DOS
+Atari 2600
+Commodore 64
+Magnavox Odyssey
+Ping-O-Tronic
+Atari PONG
+PC-50X Family
+Tele-Spiel
+Video 2000
+Coleco Telstar
+Color TV-Game
+Champion 2711
+Fairchild Channel F
+RCA Studio II
+Atari 2600
+Bally Astrocade
+APF-MP1000
+VC 4000
+Magnavox Odyssey²
+Channel F II
+APF Imagination Machine
+Bandai Super Vision 8000
+Intellivision
+PlayCable
+VTech CreatiVision
+Epoch Cassette Vision
+Arcadia 2001/Leisure Vision
+Atari 5200
+ColecoVision
+Entex Adventure Vision
+Vectrex
+PV-1000
+Videopac G7400
+Commodore 64 Games System
+Amstrad GX4000
+Atari 7800
+Atari XEGS
+Action Max
+Sega SG-1000
+Sega Master System
+NES/Family Computer (Famicom)
+Family Computer Disk System[3]
+My Vision
+Super Cassette Vision
+Zemmix
+PC Engine/TurboGrafx-16
+PC Engine2/SuperGrafx
+Sega Genesis/Mega Drive
+Sega CD/Mega CD
+Sega 32X
+Konix Multisystem
+Neo-Geo
+Super NES/Super Famicom
+SNES-CD
+Satellaview
+Atari Panther
+Commodore CDTV
+Turbo Duo/PC Engine Duo
+CD-i
+Memorex VIS
+Sega Pico
+Super A'Can
+Pioneer LaserActive
+FM Towns Marty
+Apple Bandai Pippin
+PC-FX
+Neo-Geo CD
+Atari Jaguar
+Atari Jaguar CD
+PlayStation
+Sega Saturn
+3DO Interactive Multiplayer
+Amiga CD32
+Casio Loopy
+Playdia
+CPS Changer
+Nintendo 64
+Nintendo 64DD
+Dreamcast
+Nuon
+PlayStation 2
+L600
+GameCube
+iQue Player
+Panasonic M2
+Xbox
+Phantom
+Game Wave
+Xbox 360
+HyperScan
+Wii
+PlayStation 3
+Wii U
+PlayStation 4
+Xbox One
+refrigerators
+IoT Toothbrushes
+HomePod
+GPUs
