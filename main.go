@@ -9,7 +9,6 @@ import (
 )
 
 func random(min, max int) int {
-	rand.Seed(time.Now().Unix())
 	return rand.Intn(max - min) + min
 }
 
@@ -43,6 +42,7 @@ func readFiles(sourceFileName, targetFileName string) ([]byte, []byte) {
 }
 
 func main() {
+	rand.Seed(time.Now().Unix())
 	var sources, targets []byte = readFiles("existing-idea.txt", "targets.txt")
 	idea := createIdea(sources, targets)
 	fmt.Println(idea)
