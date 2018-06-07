@@ -16,7 +16,7 @@ func (p Page) formatJsonData() interface{} {
 	case Idea:
 		return map[string]string{"Idea": fmt.Sprintf("%s", p.Data.(Idea))}
 	default:
-		return p
+		return p.Data
 	}
 }
 

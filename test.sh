@@ -5,6 +5,6 @@ export TMPL_DIR="$CWD/tmpl/"
 export SRC_DIR="$CWD/src"
 
 cd $SRC_DIR
-go test -coverprofile="$CWD/cover.out"
+go test -coverprofile="$CWD/cover.out" -v -tags test
 cd $CWD
 
