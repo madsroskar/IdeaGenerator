@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-var sources, targets []byte = readFiles("existing-idea.txt", "targets.txt")
+var sources, targets []byte = readFiles("./data/sources.txt", "./data/targets.txt")
 
 func random(min, max int) int {
 	return rand.Intn(max-min) + min
