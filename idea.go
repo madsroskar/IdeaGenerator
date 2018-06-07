@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"strings"
@@ -39,10 +40,24 @@ func createRandomIdea(sources, targets []byte) Idea {
 	return Idea{s[source], t[target], source, target}
 }
 
-func createIdea(sources, targets []byte, source, target int) Idea {
+func getValueByIndex(i int, s []string) (string, error) {
+	if i < 0 || i > len(s)-1 {
+		return "", errors.New("Index is out of bounds")
+	}
+	return s[i], nil
+}
+
+func createIdea(sources, targets []byte, sourceIndex, targetIndex int) (Idea, error) {
 	s, t := convertByteArrays(sources, targets)
 
-	return Idea{s[source], t[target], source, target}
+	source, serr := getValueByIndex(sourceIndex, s)
+	target, terr := getValueByIndex(targetIndex, t)
+
+	if serr != nil || terr != nil {
+		return Idea{}, errors.New("Idea not found.")
+	}
+
+	return Idea{source, target, sourceIndex, targetIndex}, nil
 }
 
 func readFile(fileName string) []byte {

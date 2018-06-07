@@ -41,7 +41,14 @@ func getIdea(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var page Page = Page{createIdea(sources, targets, source, target), "idea"}
+	idea, err := createIdea(sources, targets, source, target)
+
+	if err != nil {
+		http.NotFound(w, r)
+		return
+	}
+
+	var page Page = Page{idea, "idea"}
 	if v == "application/json" {
 		page.renderJson(w)
 		return
