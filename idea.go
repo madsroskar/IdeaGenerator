@@ -15,7 +15,7 @@ func (i Idea) String() string {
 	return fmt.Sprintf("%s, but for %s", i.source, i.target)
 }
 
-func createIdea(sources, targets []byte) Idea {
+func createRandomIdea(sources, targets []byte) Idea {
 	trimmedSources := strings.TrimSpace(string(sources))
 	trimmedTargets := strings.TrimSpace(string(targets))
 
@@ -23,6 +23,16 @@ func createIdea(sources, targets []byte) Idea {
 	t := strings.Split(trimmedTargets, "\n")
 
 	return Idea{s[random(0, len(s))], t[random(0, len(t))]}
+}
+
+func createIdea(sources, targets []byte, source, target int) Idea {
+	trimmedSources := strings.TrimSpace(string(sources))
+	trimmedTargets := strings.TrimSpace(string(targets))
+
+	s := strings.Split(trimmedSources, "\n")
+	t := strings.Split(trimmedTargets, "\n")
+
+	return Idea{s[target], t[target]}
 }
 
 func readFile(fileName string) []byte {
