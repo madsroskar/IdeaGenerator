@@ -7,8 +7,10 @@ import (
 )
 
 type Idea struct {
-	source string
-	target string
+	source   string
+	target   string
+	SourceId int
+	TargetId int
 }
 
 func trimStrings(a, b string) (string, string) {
@@ -31,13 +33,16 @@ func (i Idea) String() string {
 func createRandomIdea(sources, targets []byte) Idea {
 	s, t := convertByteArrays(sources, targets)
 
-	return Idea{s[random(0, len(s))], t[random(0, len(t))]}
+	source := random(0, len(s))
+	target := random(0, len(t))
+
+	return Idea{s[source], t[target], source, target}
 }
 
 func createIdea(sources, targets []byte, source, target int) Idea {
 	s, t := convertByteArrays(sources, targets)
 
-	return Idea{s[source], t[target]}
+	return Idea{s[source], t[target], source, target}
 }
 
 func readFile(fileName string) []byte {
