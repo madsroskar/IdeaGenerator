@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"html/template"
 	"net/http"
 )
 
@@ -27,10 +26,8 @@ func (p Page) renderJson(w http.ResponseWriter) {
 }
 
 func (p Page) renderHtml(w http.ResponseWriter) {
-	t, err := template.ParseFiles(p.templatePath)
+	err := bootstrap.ExecuteTemplate(w, p.templatePath, p.data)
 	if err != nil {
 		fmt.Println(err)
 	}
-
-	t.Execute(w, p.data)
 }

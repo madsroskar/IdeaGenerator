@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Idea</title>
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
-
-    <body>
-        <h1>IDEA</h1>
-        {{.}}
-    </body>
-</html>
+{{define "idea"}}
+	{{template "header" .}}
+	<div class="container">
+		<div class="row">
+			<div class="column column-50 column-offset-25 text-center">
+				<h1>IDEA</h1>
+				{{.}}		
+			</div>	
+		</div>
+	</div>
+	{{template "footer" .}}
+{{end}}

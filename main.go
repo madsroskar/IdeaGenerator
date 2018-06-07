@@ -10,9 +10,11 @@ import (
 	"path/filepath"
 	"strconv"
 	"time"
+	"html/template"
 )
 
 var sources, targets []byte = readFiles("./data/sources.txt", "./data/targets.txt")
+var bootstrap *template.Template
 
 func random(min, max int) int {
 	return rand.Intn(max-min) + min
@@ -20,7 +22,7 @@ func random(min, max int) int {
 
 func getRandomIdea(w http.ResponseWriter, r *http.Request) {
 	v := r.Header.Get("Content-Type")
-	var page Page = Page{createRandomIdea(sources, targets), "./tmpl/idea.html"}
+	var page Page = Page{createRandomIdea(sources, targets), "idea"}
 	if v == "application/json" {
 		page.renderJson(w)
 		return
@@ -39,7 +41,7 @@ func getIdea(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var page Page = Page{createIdea(sources, targets, source, target), "./tmpl/idea.html"}
+	var page Page = Page{createIdea(sources, targets, source, target), "idea.html"}
 	if v == "application/json" {
 		page.renderJson(w)
 		return
@@ -49,8 +51,10 @@ func getIdea(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	rand.Seed(time.Now().Unix())
+	
 
 	_, err := os.Stat(filepath.Join(".", "tmpl", "css", "style.css"))
+	bootstrap, err = template.ParseGlob("./tmpl/*.html")
 
 	if err != nil {
 		fmt.Println(err)
