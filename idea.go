@@ -37,7 +37,7 @@ func createRandomIdea(sources, targets []byte) Idea {
 func createIdea(sources, targets []byte, source, target int) Idea {
 	s, t := convertByteArrays(sources, targets)
 
-	return Idea{s[target], t[target]}
+	return Idea{s[source], t[target]}
 }
 
 func readFile(fileName string) []byte {

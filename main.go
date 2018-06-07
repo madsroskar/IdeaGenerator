@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gorilla/mux"
+	"html/template"
 	"log"
 	"math/rand"
 	"net/http"
@@ -10,7 +11,6 @@ import (
 	"path/filepath"
 	"strconv"
 	"time"
-	"html/template"
 )
 
 var sources, targets []byte = readFiles("./data/sources.txt", "./data/targets.txt")
@@ -41,7 +41,7 @@ func getIdea(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var page Page = Page{createIdea(sources, targets, source, target), "idea.html"}
+	var page Page = Page{createIdea(sources, targets, source, target), "idea"}
 	if v == "application/json" {
 		page.renderJson(w)
 		return
@@ -51,7 +51,6 @@ func getIdea(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	rand.Seed(time.Now().Unix())
-	
 
 	_, err := os.Stat(filepath.Join(".", "tmpl", "css", "style.css"))
 	bootstrap, err = template.ParseGlob("./tmpl/*.html")
