@@ -11,26 +11,31 @@ type Idea struct {
 	target string
 }
 
+func trimStrings(a, b string) (string, string) {
+	return strings.TrimSpace(a), strings.TrimSpace(b)
+}
+
+func splitStrings(a, b string) ([]string, []string) {
+	return strings.Split(a, "\n"), strings.Split(b, "\n")
+}
+
+func convertByteArrays(a, b []byte) ([]string, []string) {
+	atrim, btrim := trimStrings(string(a), string(b))
+	return splitStrings(atrim, btrim)
+}
+
 func (i Idea) String() string {
 	return fmt.Sprintf("%s, but for %s", i.source, i.target)
 }
 
 func createRandomIdea(sources, targets []byte) Idea {
-	trimmedSources := strings.TrimSpace(string(sources))
-	trimmedTargets := strings.TrimSpace(string(targets))
-
-	s := strings.Split(trimmedSources, "\n")
-	t := strings.Split(trimmedTargets, "\n")
+	s, t := convertByteArrays(sources, targets)
 
 	return Idea{s[random(0, len(s))], t[random(0, len(t))]}
 }
 
 func createIdea(sources, targets []byte, source, target int) Idea {
-	trimmedSources := strings.TrimSpace(string(sources))
-	trimmedTargets := strings.TrimSpace(string(targets))
-
-	s := strings.Split(trimmedSources, "\n")
-	t := strings.Split(trimmedTargets, "\n")
+	s, t := convertByteArrays(sources, targets)
 
 	return Idea{s[target], t[target]}
 }
