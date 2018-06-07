@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
-	//"encoding/json"
+	"encoding/json"
 	"log"
 	"net/http"
 	"github.com/gorilla/mux"
@@ -19,20 +19,42 @@ func random(min, max int) int {
 	return rand.Intn(max - min) + min
 }
 
-func getIdea(w http.ResponseWriter, r *http.Request) {
-	//i := make(map[string]string)
-	//i["Idea"] = fmt.Sprintf("%s", createIdea(sources, targets))
-	//json.NewEncoder(w).Encode(i)
+type Page struct {
+	data interface{}
+	templatePath string
+}
 
+func (p Page) formatJsonData() interface{}  {
+	switch p.data.(type) {
+		case Idea:
+			return map[string]string{ "Idea": fmt.Sprintf("%s", p.data.(Idea)) }
+		default:
+			return p
+	}
+}
 
-    t, err := template.ParseFiles("./tmpl/idea.html")  // Parse template file.
+func (p Page) renderJson(w http.ResponseWriter) {
+	data := p.formatJsonData();
+	json.NewEncoder(w).Encode(data)
+}
+
+func (p Page) renderHtml(w http.ResponseWriter) {
+    t, err := template.ParseFiles(p.templatePath)
     if err != nil {
 		fmt.Println(err)
-	} else {
-		fmt.Println(t)
 	}
-	idea := createIdea(sources, targets) // Get current user infomration.
-    t.Execute(w, idea)  // merge.
+	
+	t.Execute(w, p.data)
+}
+
+func getIdea(w http.ResponseWriter, r *http.Request) {
+	v := r.Header.Get("Content-Type")	
+	var page Page = Page{createIdea(sources, targets), "./tmpl/idea.html"}
+	if v == "application/json" {
+		page.renderJson(w)
+		return
+	}
+ 	page.renderHtml(w)
 }
 
 func main() {
