@@ -1,10 +1,10 @@
 package main
 
 import (
-	"testing"
 	"fmt"
-	"strings"
 	"math/rand"
+	"strings"
+	"testing"
 )
 
 func TestTrimStrings(t *testing.T) {
@@ -24,12 +24,12 @@ func TestTrimStrings(t *testing.T) {
 
 func assertLen(o, r []string, t *testing.T) {
 	if len(r) != len(o) {
-        t.Errorf("Incorrect number of elements, got: %d, want: %d.", len(r), len(o))
-    }
+		t.Errorf("Incorrect number of elements, got: %d, want: %d.", len(r), len(o))
+	}
 }
 
 func TestSplitStrings(t *testing.T) {
-	controlSlice := []string{ "a", "b", "c" }
+	controlSlice := []string{"a", "b", "c"}
 	controlSliceFlat := strings.Trim(strings.Replace(fmt.Sprint(controlSlice), " ", ",", -1), "[]")
 	testString := fmt.Sprintf("%s\n%s\n%s", "a", "b", "c")
 
@@ -37,41 +37,41 @@ func TestSplitStrings(t *testing.T) {
 
 	assertLen(controlSlice, aRes, t)
 
-    aResFlat := strings.Trim(strings.Replace(fmt.Sprint(aRes), " ", ",", -1), "[]")
+	aResFlat := strings.Trim(strings.Replace(fmt.Sprint(aRes), " ", ",", -1), "[]")
 
-    if aResFlat != controlSliceFlat {
-    	t.Errorf("First result was incorrect, got: %s, want: %s.", aResFlat, controlSliceFlat)
-    }
+	if aResFlat != controlSliceFlat {
+		t.Errorf("First result was incorrect, got: %s, want: %s.", aResFlat, controlSliceFlat)
+	}
 
 	assertLen(controlSlice, bRes, t)
 
-    bResFlat := strings.Trim(strings.Replace(fmt.Sprint(bRes), " ", ",", -1), "[]")
+	bResFlat := strings.Trim(strings.Replace(fmt.Sprint(bRes), " ", ",", -1), "[]")
 
-    if bResFlat != controlSliceFlat {
-    	t.Errorf("First result was incorrect, got: %s, want: %s.", bResFlat, controlSliceFlat)
-    }
-    
+	if bResFlat != controlSliceFlat {
+		t.Errorf("First result was incorrect, got: %s, want: %s.", bResFlat, controlSliceFlat)
+	}
+
 }
 
 func TestConvertByteArrays(t *testing.T) {
 	testSlice := []byte("a\nb\nc")
-	controlString := "a,b,c";
+	controlString := "a,b,c"
 
-	aRes, bRes := convertByteArrays(testSlice, testSlice);
+	aRes, bRes := convertByteArrays(testSlice, testSlice)
 	aResFlat := strings.Trim(strings.Replace(fmt.Sprint(aRes), " ", ",", -1), "[]")
 	bResFlat := strings.Trim(strings.Replace(fmt.Sprint(bRes), " ", ",", -1), "[]")
 
 	if aResFlat != controlString {
-    	t.Errorf("First result was incorrect, got: %s, want: %s.", aResFlat, controlString)
-    }
+		t.Errorf("First result was incorrect, got: %s, want: %s.", aResFlat, controlString)
+	}
 
-    if bResFlat != controlString {
-    	t.Errorf("First result was incorrect, got: %s, want: %s.", bResFlat, controlString)
-    }
+	if bResFlat != controlString {
+		t.Errorf("First result was incorrect, got: %s, want: %s.", bResFlat, controlString)
+	}
 }
 
 func TestIdeaString(t *testing.T) {
-	idea, err := createIdea(sources, targets, 0, 0);
+	idea, err := createIdea(sources, targets, 0, 0)
 	controlString := "Spotify, but for Blockchain"
 
 	if err != nil {
@@ -85,9 +85,9 @@ func TestIdeaString(t *testing.T) {
 
 func TestCreateRandomIdea(t *testing.T) {
 	rand.Seed(1)
-	ideaOne := createRandomIdea(sources, targets);
+	ideaOne := createRandomIdea(sources, targets)
 	rand.Seed(1)
-	ideaTwo := createRandomIdea(sources, targets);
+	ideaTwo := createRandomIdea(sources, targets)
 
 	if ideaOne != ideaTwo {
 		t.Errorf("Ideas not identical, got: %s, and: %s.", ideaOne.String(), ideaTwo.String())
@@ -131,4 +131,3 @@ func TestCreateIdea(t *testing.T) {
 		t.Errorf("Idea was not correct, got: %s, and: %s.", res.String(), controlIdea.String())
 	}
 }
-

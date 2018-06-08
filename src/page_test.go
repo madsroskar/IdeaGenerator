@@ -1,8 +1,8 @@
 package main
 
 import (
-	"testing"
 	"reflect"
+	"testing"
 )
 
 func TestFormatJsonDataIdea(t *testing.T) {
@@ -38,5 +38,5 @@ func TestFormatJsonDataMap(t *testing.T) {
 
 	if !reflect.DeepEqual(res, tmap) {
 		t.Error("The result doesn't match expected value.")
-	}	
+	}
 }

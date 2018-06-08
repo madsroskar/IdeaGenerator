@@ -19,8 +19,6 @@ func random(min, max int) int {
 	return rand.Intn(max-min) + min
 }
 
-
-
 func main() {
 	rand.Seed(time.Now().Unix())
 
@@ -32,7 +30,7 @@ func main() {
 	}
 
 	router := mux.NewRouter()
-	router.PathPrefix("/css/").Handler(http.StripPrefix("/css/", http.FileServer(http.Dir(os.Getenv("TMPL_DIR") + "css/"))))
+	router.PathPrefix("/css/").Handler(http.StripPrefix("/css/", http.FileServer(http.Dir(os.Getenv("TMPL_DIR")+"css/"))))
 	router.HandleFunc("/", getRandomIdea).Methods("GET")
 	router.HandleFunc("/{source:[0-9]+}/{target:[0-9]+}", getIdea).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", router))
