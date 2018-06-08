@@ -1,5 +1,7 @@
 # IdeaGenerator
 
+![travis](https://travis-ci.com/madsroskar/IdeaGenerator.svg?branch=master)
+
 This is a project I've created to mess around with Go and Docker. It generates "ideas" formatted as:
 
 > {Existing service}, but for {target audience or platform}.
