@@ -12,8 +12,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 To run this program you need:
 
-* [Go]()
-* [Docker]()
+* [Go](https://golang.org/doc/install)
+* [Docker](https://docs.docker.com/install/)
 
 ### Installing
 
