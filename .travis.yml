@@ -1,0 +1,6 @@
+language: go
+
+go: 
+  - master
+
+script: cd src/ && go test -tags test
