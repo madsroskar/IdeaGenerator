@@ -3,3 +3,4 @@ ideagenerator
 # IDEA
 .idea
 .DS_Store
+/src/tmp
