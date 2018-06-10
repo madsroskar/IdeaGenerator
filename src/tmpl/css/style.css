@@ -43,3 +43,24 @@ div .sharing-links a:hover {
 	cursor: pointer;
 	opacity: 0.6;
 }
+
+.navigation-list {
+    list-style: none;
+    margin-bottom: 0;
+    margin-right: 5rem;
+}
+
+.navigation-list li {
+	float: left;
+	margin-top: 0.5rem;
+    margin-bottom: 0;
+    margin-left: 2.5rem;
+    position: relative;
+}
+
+.github-corner {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+}
