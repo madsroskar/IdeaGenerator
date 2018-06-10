@@ -9,12 +9,29 @@
 		</div>
 		<div class="row">
 			<div class="column column-100">
-				<a id="permalink">Link to this idea</a>
+				<div class="sharing-links">
+					<a href="#" target="_blank" id="link" class="link"><img src="/img/001-chain.svg"/></a>
+					<a href="#" target="_blank" id="twitter" class="link"><img src="/img/003-twitter.svg"/></a>
+					<a href="#" target="_blank" id="facebook" class="link"><img src="/img/004-facebook.svg"/></a>
+					<a href="#" target="_blank" id="google-plus" class="link"><img src="/img/002-google-plus.svg"/></a>
+				</div>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
-		document.getElementById('permalink').href = window.location.origin + "/{{.Data.SourceId}}/{{.Data.TargetId}}";
+		
+		document.getElementById('facebook').href = "https://www.facebook.com/sharer.php?u=" +
+		 encodeURIComponent(window.location.origin + "/{{.Data.SourceId}}/{{.Data.TargetId}}");
+
+		document.getElementById('twitter').href = "https://twitter.com/intent/tweet?url=" +
+		 encodeURIComponent(window.location.origin + "/{{.Data.SourceId}}/{{.Data.TargetId}}") 
+		 + "&text=" + encodeURIComponent("{{.Data}}");
+
+		document.getElementById('google-plus').href = "https://plus.google.com/share?url=" +
+		 encodeURIComponent(window.location.origin + "/{{.Data.SourceId}}/{{.Data.TargetId}}");
+
+		document.getElementById('link').href = window.location.origin + 
+		"/{{.Data.SourceId}}/{{.Data.TargetId}}";
 	</script>
 
 	{{template "footer" .}}

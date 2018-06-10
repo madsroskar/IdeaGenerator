@@ -25,12 +25,13 @@ func main() {
 	_, err := os.Stat(filepath.Join(".", "tmpl", "css", "style.css"))
 	bootstrap, err = template.ParseGlob(os.Getenv("TMPL_DIR") + "*.html")
 
-	if err != nil {
+	if err != nil { 
 		fmt.Println(err)
 	}
 
 	router := mux.NewRouter()
 	router.PathPrefix("/css/").Handler(http.StripPrefix("/css/", http.FileServer(http.Dir(os.Getenv("TMPL_DIR")+"css/"))))
+	router.PathPrefix("/img/").Handler(http.StripPrefix("/img/", http.FileServer(http.Dir(os.Getenv("TMPL_DIR")+"img/"))))
 	router.HandleFunc("/", getRandomIdea).Methods("GET")
 	router.HandleFunc("/{source:[0-9]+}/{target:[0-9]+}", getIdea).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8000", router))

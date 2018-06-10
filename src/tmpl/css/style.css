@@ -20,3 +20,26 @@ h1 {
 .idea {
 	font-size: 3vw;
 }
+
+div .sharing-links {
+	height: 1.5em;
+	margin-top: 1em;
+}
+
+div .sharing-links a, div .sharing-links a img  {
+	height: 100%;
+	display: inline-block;
+}
+
+div .sharing-links a{
+	margin-right: 0.5em;
+}
+
+div .sharing-links a:last-child {
+	margin-right: 0;	
+}
+
+div .sharing-links a:hover {
+	cursor: pointer;
+	opacity: 0.6;
+}
